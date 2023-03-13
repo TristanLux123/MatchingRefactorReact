@@ -1,0 +1,7 @@
+{
+  "name": "MatchingRefactorReact",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
