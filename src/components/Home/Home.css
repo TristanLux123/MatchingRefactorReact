@@ -1,0 +1,73 @@
+p {
+  animation-duration: 3s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+color: red;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+
+
+/* LABEL UNDERLINED */
+  ion-label{
+    text-decoration: underline overline;  
+  }
+
+
+/* BUTTON ANIMATION (SLIDING TO LEFT FROM RIGHT) */
+  .ion-button1{
+    animation-duration: 1s;
+    animation-name: slidein;
+
+    color: rgb(253, 250, 250);
+  }
+
+  @keyframes slidein2 {
+    from {
+      margin-left: 100%;
+      width: 300%;
+    }
+
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
+
+  /* Center  */
+  ion-title {
+    text-align: center;
+  }
+
+  .ion-card-title{
+    text-align: center;
+  }
+
+
+
+  @keyframes slide-in {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+
+  /* ION COL DISPLAY USER ICON */
+  .ion-col1 {
+    background-color: #135d54;
+    color: #fff;
+    text-align: right;
+  }
