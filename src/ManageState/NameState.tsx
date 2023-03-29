@@ -7,6 +7,7 @@ import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
      directory: Directory.Documents,
      encoding: Encoding.UTF8,
    });
+   console.log(name)
  };
 
 

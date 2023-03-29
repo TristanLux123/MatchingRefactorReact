@@ -25,11 +25,10 @@ import { IonButton, IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonInput
 
 
    function Validate (first_namep:string, last_namep:string):boolean {
-
      var returning:any = undefined
      if (first_namep.trim() === "" ) {
        returning = false
-     }else if(last_name.trim() === ""){
+     }else if(last_namep.trim() === ""){
        returning = false
      }else{
        returning = true
@@ -90,9 +89,10 @@ import { IonButton, IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonInput
                expand="block"
                href={InitialHref}> Submit </IonButton>
              </>}
-
+            
          </IonContent>
        </IonPage></>
+
    );
  };
 
