@@ -1,6 +1,7 @@
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import Home from './components/Home/Home';
 import { Start } from './components/GameAch/Start/Start';
 // import { Start } from './pages copy/GameAchievement/Start';
@@ -23,20 +24,27 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-
+import { AppContextProvider } from './ManageState/Context';
 setupIonicReact();
 
-const App: React.FC = () => (
-  <IonApp>
 
+
+const App: React.FC = () => {
+  const [name, setName] = useState("Tristan");
+
+
+  return(
+  <IonApp>
+    <AppContextProvider>
 
       <IonReactRouter>
         <IonRouterOutlet>
            
           <Route exact path="/start" component={Start} /> 
             
-          <Route exact path="/aboutme" component={AboutMe} />
-
+          <Route exact path="/aboutme">
+            <AboutMe/>
+            </Route>  
           <Route exact path="/home" component={Home}/>
 
           <Route exact path="/">
@@ -44,7 +52,8 @@ const App: React.FC = () => (
           </Route>
         </IonRouterOutlet>
       </IonReactRouter>
+      </AppContextProvider>
     </IonApp>
-);
+)};
 
 export default App;

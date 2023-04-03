@@ -4,10 +4,12 @@ import { useState } from "react";
 import { readSecretFile } from "../../../ManageState/NameState";
 import { ButtonSetter } from "./ButtonSetter";
 import Phase1 from "../Level1/Phase1";
-
+import { AppContext } from "../../../ManageState/Context";
+import { useContext } from "react";
 export const Start: React.FC<any> = () => {
     
-    let [name, setName] =  useState("")
+
+    const { name, setName } = useContext(AppContext);
 
     let [control, setControl] = useState(false)
     
@@ -23,7 +25,11 @@ export const Start: React.FC<any> = () => {
         <IonPage>
             
             {control === false &&
-          <ButtonSetter setBoolean={setControl} logName={LogName()}  /> //pass control to button component and setState from within
+            <IonHeader>
+                <IonToolbar>
+                <IonButton expand="full" className="ion-button1" onClick={() => {setControl(true);}}> Log Name</IonButton>
+                </IonToolbar>
+            </IonHeader>
         }
 
         {control === true &&

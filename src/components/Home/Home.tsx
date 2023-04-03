@@ -1,27 +1,22 @@
 import { IonButton, IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonInput, IonItem, IonLabel, IonMenu, IonMenuButton, IonPage, IonSplitPane, IonText, IonTitle, IonToolbar } from '@ionic/react';
- import { useState } from 'react';
- import { CreateAnimation } from '@ionic/react';
+ import { useState, useContext } from 'react';
  import './Home.css';
- import { useContext } from 'react';
  import React from 'react';
- import { readSecretFile } from '../../ManageState/NameState';
  import { writeSecretFile } from '../../ManageState/NameState';
  import { Menu } from './Menu/Menu';
 
-
- type NameProps =
- {
-   name_p: any,
-   name_setter:any
+import { AppContext } from '../../ManageState/Context';
+ type ContextType = {
+    name: any;
+    setName:any;
  }
 
- const Home: React.FC<NameProps> = (props) => {
-
+ const Home: React.FC<ContextType> = () => {
+  const { name, setName } = useContext(AppContext);
    const [InitialHref, setHref] = useState("/start")
-
-   const [input_name, setName] = useState("")
+  
+   const [input_name, set_Name] = useState("")
    const [last_name, setLastName] = useState("")
-
 
 
    function Validate (first_namep:string, last_namep:string):boolean {
@@ -61,7 +56,7 @@ import { IonButton, IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonInput
            <IonItem>
              <IonLabel color="tertiary"> |FIRST NAME| </IonLabel>
              <IonInput placeholder='*Required*'
-               onIonChange={(e: any) => setName(e.target.value)} />
+               onIonChange={(e: any) => set_Name(e.target.value)} />
            </IonItem>
 
            <IonItem>
@@ -85,7 +80,7 @@ import { IonButton, IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonInput
            {Validate(input_name, last_name) === true &&
              <><IonButton 
              className='ion-button1'
-               onClick={() => writeSecretFile(input_name)}
+               onClick={() => setName(input_name)}
                expand="block"
                href={InitialHref}> Submit </IonButton>
              </>}

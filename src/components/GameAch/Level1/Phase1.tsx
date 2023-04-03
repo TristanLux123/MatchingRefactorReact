@@ -15,6 +15,7 @@ import React, { useContext, useState } from 'react';
  }
 
  const Phase1: React.FC<PropsTypes> = (props) => {
+
    // IMAGE STATE INFO
    const img1: string = level1_pic1
    const img2: string = level1_pic2

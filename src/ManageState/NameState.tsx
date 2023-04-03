@@ -1,4 +1,5 @@
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
+import { stringify } from 'querystring';
 
  export const writeSecretFile = async (name:string) => {
    await Filesystem.writeFile({
@@ -18,7 +19,8 @@ import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
      encoding: Encoding.UTF8,
    });
 
-   const StringData:string = contents.data
+   let StringData:string = contents.data
+   console.log(StringData)
    return StringData
  };
 
